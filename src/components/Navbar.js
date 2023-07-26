@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Navbar({Dash}) {
 
-  console.log(Dash);
+  console.log("dash",Dash);
   return (
     <>
       <nav className="navbar navbar-expand-md  mb-4 header fixed-top d-flex align-items-center">
@@ -31,7 +31,7 @@ function Navbar({Dash}) {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/roles">
+                <Link className={Dash === "roles" ? "nav-link active" : "nav-link" } to="/roles">
                   Certificates
                 </Link>
               </li>

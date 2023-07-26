@@ -16,6 +16,7 @@ import Swal from "sweetalert2";
 import { useAddApproveMutation } from "../../services/Post";
 import { useQuestionListMutation } from "../../services/Post";
 import { useUpdateQuestionListMutation } from "../../services/Post";
+import { useUpdateQuestionMutation } from "../../services/Post";
 function AuditorQuestions2() {
   const { id } = useParams();
   console.log("id 5667", id);
@@ -27,6 +28,7 @@ function AuditorQuestions2() {
 
   const [approveIn, response] = useAddApproveMutation();
   const [updateQuestion, resInfo] = useUpdateQuestionListMutation();
+  
   const [questionList, re] = useQuestionListMutation();
   const [generatedId, setGeneratedId] = useState("");
   const [activeStep, setActiveStep] = useState(1);

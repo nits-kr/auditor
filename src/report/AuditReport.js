@@ -47,8 +47,8 @@ function AuditReport() {
           "#884EA0",
           "#D35400",
           "#27BE70",
-          "#87AL50",
-          "#FFAW60",
+          "#03fcf4",
+          "#03b1fc",
           "#E2AE60",
         ],
       },
@@ -102,23 +102,23 @@ function AuditReport() {
                             style={{ zIndex: 9999 }}
                           >
                             <option selected="">Year</option>
-                            <option value={1}>202</option>
+                            <option value={1}>2021</option>
                             <option value={2}>2022</option>
                             <option value={3}>2023</option>
                           </select>
                         </div>
-                        <div className="col-md-1 float-start pe-2 pb-1">
+                        {/* <div className="col-md-1 float-start pe-2 pb-1">
                           <select
                             className="form-select form-select-sm mb-1"
                             aria-label="Default select example"
                             style={{ zIndex: 9999 }}
                           >
                             <option selected="">Year</option>
-                            <option value={1}>202</option>
+                            <option value={1}>2021</option>
                             <option value={2}>2022</option>
                             <option value={3}>2023</option>
                           </select>
-                        </div>
+                        </div> */}
                       </div>
                       <section
                         className="section dashboard"
@@ -207,7 +207,7 @@ function AuditReport() {
                                                 backgroundColor: "#F6F7FF",
                                               }}
                                             >
-                                              <div className="card-body">
+                                              <div className="card-body" style={{height: "416px"}}>
                                                 <div className="card-title">
                                                   Observations
                                                 </div>
@@ -379,7 +379,7 @@ function AuditReport() {
                                       </div>
                                       <div className="col-lg-3">
                                         <div className="card rec-bg">
-                                          <div className="card-body">
+                                          <div className="card-body" style={{height: "718px"}}>
                                             <div className="card-title">
                                               Recommendations
                                             </div>

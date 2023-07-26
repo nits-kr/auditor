@@ -2728,15 +2728,24 @@ body {
 
 
 .AdminCustomCard .card-title {
-  font-size: 11px !important;
+  /* font-size: 11px !important;
   line-height: 6px;
   padding-bottom: 6px;
   width: 100%;
-  display: block;
+  display: block; */
+  font-size: 11px !important;
+    line-height: 11px;
+    width: 100%;
+    display: block;
 }
 .AdminCustomCard{
-  padding: 10px !important;
-  min-width: 5rem !important;
+  /* padding: 10px !important;
+  min-width: 5rem !important; */
+  padding: 6px !important;
+    height: 6.5rem;
+    width: 7rem;
+    margin-bottom: 4px;
+    min-width: 6rem !important;
 }
 
 .card-title {
@@ -2753,11 +2762,17 @@ body {
 }
 
 .AdminCustomCard .card-body p.Number {
-  font-size: 18px;
+  /* font-size: 18px;
   font-weight: 700;
   color: #707070;
   float: left;
-  line-height: 40px;
+  line-height: 40px; */
+  font-size: 16px;
+    font-weight: 700;
+    color: #707070;
+    float: left;
+    line-height: 40px;
+    margin-bottom: 0 !important;
 }
 
 p {

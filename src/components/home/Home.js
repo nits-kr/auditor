@@ -134,7 +134,7 @@ function Home() {
     console.log("handleSaveChanges1", itemId2);
     const editDuplicate = {
       id: itemId5,
-      auditorName: entity,
+      auditorName: "Auditor",
       assign: true
     };
     assignItem(editDuplicate);
@@ -550,11 +550,11 @@ function Home() {
                     // defaultValue=" "
                     onChange={(e) => setEntity(e.target.value)}
                   >
-                    <option value="Auditor">Auditor</option>
-                    <option value="ADNOC">ADNOC</option>
-                    <option value="DMT">DMT</option>
-                    <option value="SSL">SSL</option>
-                    <option value="Tabreed">Tabreed</option>
+                    <option value="Auditor">RWGBF</option>
+                    <option value="ADNOC">ARMAC</option>
+                    <option value="DMT">SAERDC</option>
+                    <option value="SSL">TRCSD</option>
+                    <option value="Tabreed">REACT</option>
                   </select>
                   <label htmlFor="floatingSelect">Select Auditor Name</label>
                 </div>

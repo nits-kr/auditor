@@ -221,7 +221,7 @@ export const PostApi = createApi({
         const { id, ...data } = body;
         console.log("update address body data", data);
         return {
-          url: `/adda/auditor-aproved-Score/${id}`,
+          url: `/adda/update-question/${id}`,
           method: "post",
           body: data,
         };
@@ -236,6 +236,17 @@ export const PostApi = createApi({
           url: `/adda/adda-user-update/${id}`,
           method: "post",
           body: data,
+        };
+      },
+    }),
+    updateQuestion: builder.mutation({
+      query: (id) => {
+        // console.log("update address", body);
+        // const { id, ...data } = body;
+        console.log("update address body data10", id);
+        return {
+          url: `/adda/auditor-aproved-Score/${id}`,
+          method: "post",
         };
       },
     }),
@@ -268,4 +279,5 @@ export const {
   useUpdateQuestionListMutation,
   useAddRejectMutation,
   useAssignDataMutation,
+  useUpdateQuestionMutation,
 } = PostApi;

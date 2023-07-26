@@ -95,7 +95,7 @@ function Rles() {
   return (
     <>
       <Header />
-      <Navbar />
+      <Navbar Dash ="roles"/>
       <main id="main" className="main">
         <div className="container p-0">
           <section className="section">

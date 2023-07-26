@@ -12,6 +12,7 @@ import { useAddApproveMutation } from "../../services/Post";
 import { useQuestionListMutation } from "../../services/Post";
 import { useUpdateQuestionListMutation } from "../../services/Post";
 import { useAddRejectMutation } from "../../services/Post";
+import { useUpdateQuestionMutation } from "../../services/Post";
 function AuditorQuestions() {
   const { id } = useParams();
   const [page, setPage] = useState(1);
@@ -76,6 +77,7 @@ function AuditorQuestions() {
   const [approveIn, response] = useAddApproveMutation();
   const [reject, r] = useAddRejectMutation();
   const [updateQuestion, resInfo] = useUpdateQuestionListMutation();
+  const [approveScore] = useUpdateQuestionMutation();
   const [questionList, re] = useQuestionListMutation();
   const [generatedId, setGeneratedId] = useState("");
   const [activeStep, setActiveStep] = useState(1);
@@ -83,6 +85,12 @@ function AuditorQuestions() {
   const [acceptedMessage, setAcceptedMessage] = useState("");
   console.log("question list", re?.data?.results?.listData);
   console.log("question list response", re);
+  const handleSaveChanges5 = () => {
+    const editAddress = {
+      id: id,
+    };
+    approveScore(editAddress);
+  };
   const handlecolorchange2 = () => {
     setColorChange1(false);
     setColorChange2(true);
@@ -6485,8 +6493,8 @@ function AuditorQuestions() {
                           name="next"
                           onClick={() => {
                             page === 10 ? setPage(10) : setPage(page + 1);
-                            // handleSaveChanges2();
-                            // handleSaveChanges3();
+                            handleSaveChanges2();
+                            // handleSaveChanges5();
                             handleSaveChanges3();
                           }}
                         >
