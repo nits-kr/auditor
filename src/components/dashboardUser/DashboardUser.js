@@ -122,7 +122,7 @@ function DashboardUser() {
         label: "2023",
         data: [19, 96, 27, 100],
         fill: true,
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
+        backgroundColor: "rgba(54, 162, 235, 0.2)" ,
         borderColor: "rgb(54, 162, 235)",
         pointBackgroundColor: "rgb(54, 162, 235)",
         pointBorderColor: "#fff",
