@@ -120,7 +120,7 @@ function DashboardUser() {
       },
       {
         label: "2023",
-        data: [28, 48, 40, 19, 96, 27, 100],
+        data: [19, 96, 27, 100],
         fill: true,
         backgroundColor: "rgba(54, 162, 235, 0.2)",
         borderColor: "rgb(54, 162, 235)",
@@ -479,6 +479,7 @@ function DashboardUser() {
                               className="form-select form-select-sm "
                               aria-label="Default select example"
                               style={{ zIndex: 9999 }}
+                              onChange={(e) => setDataChart(e.target.value)}
                             >
                               <option selected="">Selct Domain</option>
                               <option value={1}>Data Governance</option>
@@ -488,7 +489,8 @@ function DashboardUser() {
                           </div>
                         </h5>
                         {/* Radar Chart */}
-                        <Radar data={data} />
+                        <Radar key={dataChart}
+                          data={dataChart == 1 ? dataGovernance : data}/>
                         {/* <canvas
                   id="radarChart"
                   style={{
