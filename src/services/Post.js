@@ -66,7 +66,17 @@ export const PostApi = createApi({
         const { id } = body;
         console.log("viewDetails id", id);
         return {
-          url: `/adda/adda-aproved-in/${id}`,
+          url: `/adda/auditor-aproved-Score/${id}`,
+          method: "post",
+        };
+      },
+    }),
+    addReject: builder.mutation({
+      query: (body) => {
+        const { id } = body;
+        console.log("viewDetails id", id);
+        return {
+          url: `/adda/auditor-rejected/${id}`,
           method: "post",
         };
       },
@@ -169,6 +179,18 @@ export const PostApi = createApi({
         };
       },
     }),
+    assignData: builder.mutation({
+      query: (body) => {
+        console.log("update address", body);
+        const { id, ...data } = body;
+        console.log("update address body data", data);
+        return {
+          url: `/adda/auditor-assign/${id}`,
+          method: "post",
+          body: data,
+        };
+      },
+    }),
     deleteRole: builder.mutation({
       query: (id) => ({
         url: `/adda/adda-role-delete/${id}`,
@@ -244,4 +266,6 @@ export const {
   useAddApproveMutation,
   useQuestionListMutation,
   useUpdateQuestionListMutation,
+  useAddRejectMutation,
+  useAssignDataMutation,
 } = PostApi;

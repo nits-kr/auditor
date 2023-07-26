@@ -11,6 +11,7 @@ import {
   faUserPlus,
   faCalendarDays,
   faComment,
+  faUserCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { useGetAllPostHomeQuery } from "../../services/Post";
 import { useCreateFormMutation } from "../../services/Post";
@@ -18,6 +19,7 @@ import { useViewDetailsMutation } from "../../services/Post";
 import { useUpdateDuplicateMutation } from "../../services/Post";
 import { useAddHomeScheduleMutation } from "../../services/Post";
 import { useQuestionListMutation } from "../../services/Post";
+import { useAssignDataMutation } from "../../services/Post";
 
 // import CanvasJSReact from "@canvasjs/react-charts";
 // //var CanvasJSReact = require('@canvasjs/react-charts');
@@ -30,6 +32,7 @@ function Home() {
   const [createForm] = useCreateFormMutation();
   const [viewDetails] = useViewDetailsMutation();
   const [updateDuplicate] = useUpdateDuplicateMutation();
+  const [assignItem] = useAssignDataMutation();
   const [schedule, responseSchedule] = useAddHomeScheduleMutation();
   // console.log("useViewDetailsMutation", useViewDetailsMutation);
   console.log("create form", createForm);
@@ -39,8 +42,9 @@ function Home() {
   const [itemId, setItemId] = useState("");
   const [title2, setTitle2] = useState("");
   const [itemId2, setItemId2] = useState("");
-  const [itemId3, setItemId3] = useState("");
+  const [itemId5, setItemId5] = useState("");
   const [entity, setEntity] = useState("");
+  console.log("auditor assign", entity);
   const [internal, setInternal] = useState("");
   const [status, setStatus] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -125,6 +129,18 @@ function Home() {
       title: title2,
     };
     updateDuplicate(editDuplicate);
+  };
+  const handleSaveChanges6 = () => {
+    console.log("handleSaveChanges1", itemId2);
+    const editDuplicate = {
+      id: itemId5,
+      auditorName: entity,
+      assign: true
+    };
+    assignItem(editDuplicate);
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   const handleSaveChanges5 = () => {
@@ -270,7 +286,7 @@ function Home() {
                                 {item?.userName}
                               </td>
                               <td></td>
-                              <td></td>
+                              <td> {item?.score} </td>
                               <td style={{ textAlign: "center" }}>
                                 <div className="nav-item dropdown pe-3">
                                   <Link
@@ -278,7 +294,12 @@ function Home() {
                                     to="#"
                                     data-bs-toggle="dropdown"
                                   >
-                                    {" "}
+                                    {item.to && item.from
+                                      ? `${item.to.slice(
+                                          0,
+                                          10
+                                        )} to ${item.from.slice(0, 10)}`
+                                      : ""}
                                   </Link>
 
                                   <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile text-start">
@@ -292,7 +313,15 @@ function Home() {
                                       <div className="form-group text-start">
                                         <small>Scheduled date</small>
                                         <h6 className="text-black">
-                                          25-06-2023 to 30-06-2023
+                                          {item.from && item.to
+                                            ? `${item.from.slice(
+                                                0,
+                                                10
+                                              )} to ${item.to.slice(
+                                                0,
+                                                10
+                                              )}`
+                                            : ""}
                                         </h6>
                                       </div>
                                       <div className="form-group text-start">
@@ -313,26 +342,26 @@ function Home() {
                                 {item?.status}
                               </td>
                               <td style={{ textAlign: "end" }}>
-                                {item?.schedule ? (
+                                {item?.assign ? (
                                   <Link
                                     type="button"
                                     className="btn btn-sm  mx-1"
                                     style={{ cursor: "not-allowed" }}
                                   >
-                                    <FontAwesomeIcon icon={faCalendarDays} />{" "}
-                                    Scheduled
+                                    <FontAwesomeIcon icon={faUserCheck} />{" "}
+                                    Assign
                                   </Link>
                                 ) : (
                                   <Link
                                     type="button"
-                                    to="question3.html"
+                                    to="#"
                                     className="btn btn-sm tableBtn-blue mx-1"
                                     data-bs-toggle="modal"
                                     data-bs-target="#ExtralargeModal2"
-                                    onClick={() => setItemId2(item?._id)}
+                                    onClick={() => setItemId5(item?._id)}
                                   >
-                                    <FontAwesomeIcon icon={faCalendarDays} />{" "}
-                                    Schedule
+                                    <FontAwesomeIcon icon={faUserCheck} />{" "}
+                                    Assign
                                   </Link>
                                 )}
 
@@ -348,7 +377,7 @@ function Home() {
                                   onClick={() => review(item._id)}
                                 >
                                   <FontAwesomeIcon icon={faCopy} />
-                                  <FontAwesomeIcon icon={faComment} /> Review
+                                  <FontAwesomeIcon icon={faComment} /> Review/Approve
                                 </Link>
                               </td>
                             </tr>
@@ -383,7 +412,7 @@ function Home() {
                           const currentItem = item;
                           return (
                             <tr key={index}>
-                              <th scope="row">AUD45461</th>
+                              <th scope="row"> {currentItem?.uniQ_Id} </th>
                               <td>{currentItem.title}</td>
                               <td style={{ textAlign: "center" }}>
                                 {currentItem.createdAt?.slice(0, 10)}
@@ -452,7 +481,7 @@ function Home() {
                               </td>
                               <td style={{ textAlign: "end" }}>
                                 <Link
-                                  to="/auditior-question/:id"
+                                  to={`/auditior-question/${currentItem._id}`}
                                   className="btn btn-sm tableBtn-Gray"
                                   fdprocessedid="nnhqma"
                                   onClick={() => {
@@ -488,7 +517,7 @@ function Home() {
         <div className="modal-dialog modal-xl modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Schedule</h5>
+              <h5 className="modal-title">Assign</h5>
               <button
                 type="button"
                 className="btn-close"
@@ -498,92 +527,36 @@ function Home() {
             </div>
             <div className="modal-body">
               <form>
+                
+                <legend className="col-form-label col-sm-1 pt-0">
+                  Auditor
+                </legend>
+                <span>
+                  <div className="col-sm-6">
+                    <div className="form-check-inline">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id="gridCheck1"
+                      />
+                    </div>
+                  </div>
+                </span>
                 <div className="form-floating theme-form-floating">
                   <select
                     className="form-select"
                     id="floatingSelect1"
                     aria-label="Floating label select example"
-                    defaultValue=" "
+                    // defaultValue=" "
                     onChange={(e) => setEntity(e.target.value)}
                   >
-                    <option value="Adda">Adda</option>
+                    <option value="Auditor">Auditor</option>
                     <option value="ADNOC">ADNOC</option>
                     <option value="DMT">DMT</option>
                     <option value="SSL">SSL</option>
                     <option value="Tabreed">Tabreed</option>
                   </select>
-                  <label htmlFor="floatingSelect">Select Entity Name</label>
-                </div>
-                <legend className="col-form-label col-sm-1 pt-0">
-                  External
-                </legend>
-                <span>
-                  <div className="col-sm-6">
-                    <div className="form-check-inline">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id="gridCheck1"
-                      />
-                    </div>
-                  </div>
-                </span>
-                <legend className="col-form-label col-sm-1 pt-0">
-                  Internal
-                </legend>
-                <span>
-                  <div className="col-sm-6">
-                    <div className="form-check-inline">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id="gridCheck1"
-                        onChange={(e) => setInternal(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                </span>
-              </form>
-
-              <form
-                className="form-design py-4 px-3 help-support-form row align-items-end justify-content-between"
-                action=""
-              >
-                <div className="form-group mb-0 col-6">
-                  <label htmlFor="">From</label>
-                  <input
-                    type="date"
-                    className="form-control"
-                    id="startDate"
-                    onChange={(e) => setStartDate(e.target.value)}
-                  />
-                </div>
-                <div className="form-group mb-0 col-6">
-                  <label htmlFor="">To</label>
-                  <input
-                    type="date"
-                    className="form-control"
-                    id="endDate"
-                    onChange={(e) => setEndDate(e.target.value)}
-                  />
-                </div>
-              </form>
-              <form>
-                <div className="form-floating theme-form-floating">
-                  <select
-                    className="form-select"
-                    id="floatingSelect1"
-                    aria-label="Floating label select example"
-                    defaultValue=" "
-                    onChange={(e) => setStatus(e.target.value)}
-                  >
-                    <option value="Active">Active</option>
-                    <option value="Active">Active</option>
-                    <option value="Active">Active</option>
-                    <option value="Active">Active</option>
-                    <option value="Active">Active</option>
-                  </select>
-                  <label htmlFor="floatingSelect">Status</label>
+                  <label htmlFor="floatingSelect">Select Auditor Name</label>
                 </div>
               </form>
             </div>
@@ -592,9 +565,9 @@ function Home() {
                 type="button"
                 className="btn btn-primary"
                 data-bs-dismiss="modal"
-                onClick={handleSaveChanges5}
+                onClick={handleSaveChanges6}
               >
-                Schedule
+                Save Change
               </button>
             </div>
           </div>

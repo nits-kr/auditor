@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { useAddApproveMutation } from "../../services/Post";
 import { useQuestionListMutation } from "../../services/Post";
 import { useUpdateQuestionListMutation } from "../../services/Post";
+import { useAddRejectMutation } from "../../services/Post";
 function AuditorQuestions() {
   const { id } = useParams();
   const [page, setPage] = useState(1);
@@ -73,6 +74,7 @@ function AuditorQuestions() {
   const [qAcceptbuttonValue7, qsetAcceptbuttonValue7] = useState("");
 
   const [approveIn, response] = useAddApproveMutation();
+  const [reject, r] = useAddRejectMutation();
   const [updateQuestion, resInfo] = useUpdateQuestionListMutation();
   const [questionList, re] = useQuestionListMutation();
   const [generatedId, setGeneratedId] = useState("");
@@ -194,7 +196,7 @@ function AuditorQuestions() {
     qsetColorChange14(false);
   };
   useEffect(() => {
-      handleAcceptbutton1()
+    handleAcceptbutton1();
   }, [acceptbutton1]);
   const handleAcceptbutton1 = () => {
     if (acceptbutton1 === true) {
@@ -334,6 +336,7 @@ function AuditorQuestions() {
       qsetAcceptbuttonValue7("Rejected");
     }
   };
+  console.log("handleSaveChanges2");
   const handleSaveChanges2 = () => {
     const editAddress = {
       id: id,
@@ -345,6 +348,22 @@ function AuditorQuestions() {
       title: "Approved",
       text: "Your have been Approved In.",
       timer: 3000,
+      timerProgressBar: true,
+    });
+    // window.location.href = "/home";
+    // window.location.reload();
+  };
+  const handleSaveChanges4 = () => {
+    const editAddress = {
+      id: id,
+    };
+    reject(editAddress);
+
+    Swal.fire({
+      icon: "success",
+      title: "Rejected",
+      text: "Your have been Rejected.",
+      timer: 10000,
       timerProgressBar: true,
     });
     window.location.href = "/home";
@@ -372,7 +391,7 @@ function AuditorQuestions() {
   }, [itemId]);
   const userDetails = async () => {
     const { data } = await axios.post(
-      `http://ec2-65-2-108-172.ap-south-1.compute.amazonaws.com:5000/adda/adge-questionList/${itemId}`
+      `http://ec2-65-2-108-172.ap-south-1.compute.amazonaws.com:5000/adda/adge-questionList/${id}`
     );
     setAgentDetails(data?.results?.listData);
     console.log(" auditor question Question Details", data?.results?.listData);
@@ -382,7 +401,7 @@ function AuditorQuestions() {
     // const acceptValue = acceptbutton1 ? "Rejected" : "Accepted";
     console.log("handleSaveChanges1", itemId);
     const editAddress = {
-      id: itemId,
+      id: id,
       accept1: acceptbuttonValue1,
       accept2: acceptbuttonValue2,
       accept3: acceptbuttonValue3,
@@ -408,11 +427,10 @@ function AuditorQuestions() {
         confirmButtonText: "OK",
       }).then((result) => {
         if (result.isConfirmed) {
-          // window.location.reload();
+          window.location.href = "/home";
         }
       });
     });
-    
   };
 
   return (
@@ -634,10 +652,10 @@ function AuditorQuestions() {
                                     structure to support the Data Management
                                     Programme.{" "}
                                     <span className="badge bg-danger">
-                                      High Priority
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Optional
+                                      Mandatory
                                     </span>
                                     <ul>
                                       <li>
@@ -671,7 +689,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.status1
                                             ? agentDetails?.status1?.toUpperCase()
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -692,7 +710,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.doc1 === "" ||
+                                            agentDetails.doc1 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.doc1].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -709,7 +731,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.comment1 === "" ||
+                                            agentDetails.comment1 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.comment1].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -767,14 +794,14 @@ function AuditorQuestions() {
                                           {" "}
                                           <img
                                             src={agentDetails?.doc1}
-                                            alt="upload"
+                                            alt="Not Uploaded"
                                             width="4%"
                                             className=""
                                           />{" "}
-                                          Upload your files here or
-                                          <button className="btn bg-color-dblue btn-primary">
+                                          {/* Upload your files here or
+                                          <button className="btn bg-color-dblue btn-primary" style={{marginLeft:"5px"}}>
                                             Browse
-                                          </button>
+                                          </button> */}
                                         </div>
                                         <span
                                           id="fileName1"
@@ -861,7 +888,7 @@ function AuditorQuestions() {
                                                 <div className="result_comment col-md-11">
                                                   {/* <h4>Nath Ryuzaki</h4> */}
                                                   <p>
-                                                    {agentDetails?.qcomment1}
+                                                    {agentDetails?.comment1}
                                                   </p>
                                                   {/* <div className="tools_comment">
                                                     {" "}
@@ -1017,10 +1044,10 @@ function AuditorQuestions() {
                                     will be the final arbiter within the Entity
                                     for all matters relating to data management.{" "}
                                     <span className="badge bg-danger">
-                                      High Priority
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Optional
+                                      Mandatory
                                     </span>
                                     <ul>
                                       <li>
@@ -1053,7 +1080,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.status2
                                             ? agentDetails?.status2?.toUpperCase()
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -1074,7 +1101,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.doc2 === "" ||
+                                            agentDetails.doc2 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.doc2].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -1091,7 +1122,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.comment2 === "" ||
+                                            agentDetails.comment2 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.comment2].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -1247,7 +1283,7 @@ function AuditorQuestions() {
                                                 <div className="result_comment col-md-11">
                                                   {/* <h4>Nath Ryuzaki</h4> */}
                                                   <p>
-                                                    {agentDetails?.qcomment2}
+                                                    {agentDetails?.comment2}
                                                   </p>
                                                   {/* <div className="tools_comment">
                                                     {" "}
@@ -1407,10 +1443,10 @@ function AuditorQuestions() {
                                     Data Manager shall have delegated authority
                                     from the Data Governance Board.{" "}
                                     <span className="badge bg-danger">
-                                      High Priority
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Optional
+                                      Mandatory
                                     </span>
                                     <ul>
                                       The Data Manager shall:
@@ -1446,7 +1482,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.status3
                                             ? agentDetails?.status3?.toUpperCase()
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -1467,7 +1503,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.doc3 === "" ||
+                                            agentDetails.doc3 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.doc3].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -1484,7 +1524,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.comment3 === "" ||
+                                            agentDetails.comment3 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.comment3].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -1640,7 +1685,7 @@ function AuditorQuestions() {
                                                 <div className="result_comment col-md-11">
                                                   {/* <h4>Nath Ryuzaki</h4> */}
                                                   <p>
-                                                    {agentDetails?.qcomment3}
+                                                    {agentDetails?.comment3}
                                                   </p>
                                                   {/* <div className="tools_comment">
                                                     {" "}
@@ -1799,10 +1844,10 @@ function AuditorQuestions() {
                                     The Entity shall identify and appoint Data
                                     Architects to support the Data Manager.{" "}
                                     <span className="badge bg-danger">
-                                      High Priority
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Optional
+                                      Mandatory
                                     </span>
                                     <ul>
                                       The Data Architects shall:
@@ -1854,7 +1899,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.status4
                                             ? agentDetails?.status4?.toUpperCase()
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -1875,7 +1920,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.doc4 === "" ||
+                                            agentDetails.doc4 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.doc4].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -1892,7 +1941,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.comment4 === "" ||
+                                            agentDetails.comment4 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.comment4].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -2048,7 +2102,7 @@ function AuditorQuestions() {
                                                 <div className="result_comment col-md-11">
                                                   {/* <h4>Nath Ryuzaki</h4> */}
                                                   <p>
-                                                    {agentDetails?.qcomment4}
+                                                    {agentDetails?.comment4}
                                                   </p>
                                                   {/* <div className="tools_comment">
                                                     {" "}
@@ -2209,10 +2263,10 @@ function AuditorQuestions() {
                                     the business and technical areas of the
                                     organisation{" "}
                                     <span className="badge bg-danger">
-                                      High Priority
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Optional
+                                      Mandatory
                                     </span>
                                     <ul>
                                       <li>
@@ -2242,7 +2296,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.status5
                                             ? agentDetails?.status5?.toUpperCase()
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -2263,7 +2317,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.doc5 === "" ||
+                                            agentDetails.doc5 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.doc5].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -2280,7 +2338,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.comment5 === "" ||
+                                            agentDetails.comment5 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.comment5].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -2436,7 +2499,7 @@ function AuditorQuestions() {
                                                 <div className="result_comment col-md-11">
                                                   {/* <h4>Nath Ryuzaki</h4> */}
                                                   <p>
-                                                    {agentDetails?.qcomment5}
+                                                    {agentDetails?.comment5}
                                                   </p>
                                                   {/* <div className="tools_comment">
                                                     {" "}
@@ -2598,10 +2661,10 @@ function AuditorQuestions() {
                                     Owners will be drawn from both the business
                                     and technical areas of the organisation.{" "}
                                     <span className="badge bg-danger">
-                                      High Priority
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Optional
+                                      Mandatory
                                     </span>
                                     <ul>
                                       <li>
@@ -2634,7 +2697,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.status6
                                             ? agentDetails?.status6?.toUpperCase()
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -2655,7 +2718,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.doc6 === "" ||
+                                            agentDetails.doc6 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.doc6].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -2672,7 +2739,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.comment6 === "" ||
+                                            agentDetails.comment6 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.comment6].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -2828,7 +2900,7 @@ function AuditorQuestions() {
                                                 <div className="result_comment col-md-11">
                                                   {/* <h4>Nath Ryuzaki</h4> */}
                                                   <p>
-                                                    {agentDetails?.qcomment6}
+                                                    {agentDetails?.comment6}
                                                   </p>
                                                   {/* <div className="tools_comment">
                                                     {" "}
@@ -2991,10 +3063,10 @@ function AuditorQuestions() {
                                     established policy, standards and best
                                     practices
                                     <span className="badge bg-danger">
-                                      High Priority
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Optional
+                                      Mandatory
                                     </span>
                                     <ul>
                                       Such reviews should include coverage of:
@@ -3024,7 +3096,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.status7
                                             ? agentDetails?.status7?.toUpperCase()
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -3045,7 +3117,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.doc7 === "" ||
+                                            agentDetails.doc7 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.doc7].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -3062,7 +3138,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.comment7 === "" ||
+                                            agentDetails.comment7 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.comment7].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -3218,7 +3299,7 @@ function AuditorQuestions() {
                                                 <div className="result_comment col-md-11">
                                                   {/* <h4>Nath Ryuzaki</h4> */}
                                                   <p>
-                                                    {agentDetails?.qcomment7}
+                                                    {agentDetails?.comment7}
                                                   </p>
                                                   {/* <div className="tools_comment">
                                                     {" "}
@@ -3467,10 +3548,10 @@ function AuditorQuestions() {
                                     audience) and data dictionary (technical
                                     audience).{" "}
                                     <span className="badge bg-danger">
-                                      Danger
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Secondary
+                                      Mandatory
                                     </span>
                                     <ul>
                                       Definitions shall exist for:
@@ -3536,7 +3617,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.qstatus1
                                             ? agentDetails.qstatus1
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -3557,7 +3638,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qdoc1 === "" ||
+                                            agentDetails.qdoc1 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.qdoc1].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -3574,7 +3659,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qcomment1 === "" ||
+                                            agentDetails.qcomment1 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.qcomment1].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -3892,10 +3982,10 @@ function AuditorQuestions() {
                                     are not limited to – the minimum measures of
                                     data quality for
                                     <span className="badge bg-danger">
-                                      Danger
+                                      High
                                     </span>
                                     <span className="badge bg-secondary">
-                                      Secondary
+                                      Mandatory
                                     </span>
                                     .{" "}
                                     <ul>
@@ -3990,7 +4080,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.qstatus2
                                             ? agentDetails.qstatus2
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -4011,7 +4101,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qdoc2 === "" ||
+                                            agentDetails.qdoc2 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.qdoc2].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -4028,7 +4122,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qcomment2 === "" ||
+                                            agentDetails.qcomment2 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.qcomment2].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -4344,10 +4443,10 @@ function AuditorQuestions() {
                                     Data Manager shall have delegated authority
                                     from the Data Governance Board..{" "}
                                     <span className="badge bg-danger">
-                                      Danger
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Secondary
+                                      Mandatory
                                     </span>
                                     <ul>
                                       The Data Manager shall:
@@ -4383,7 +4482,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.qstatus3
                                             ? agentDetails.qstatus3
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -4404,7 +4503,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qdoc3 === "" ||
+                                            agentDetails.qdoc3 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.qdoc3].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -4421,7 +4524,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qcomment3 === "" ||
+                                            agentDetails.qcomment3 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.qcomment3].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -4736,10 +4844,10 @@ function AuditorQuestions() {
                                     The Entity shall identify and appoint Data
                                     Architects to support the Data Manager..{" "}
                                     <span className="badge bg-danger">
-                                      Danger
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Secondary
+                                      Mandatory
                                     </span>
                                     <ul>
                                       The Data Architects shall:
@@ -4791,7 +4899,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.qstatus4
                                             ? agentDetails.qstatus4
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -4812,7 +4920,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qdoc4 === "" ||
+                                            agentDetails.qdoc4 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.qdoc4].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -4829,7 +4941,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qcomment4 === "" ||
+                                            agentDetails.qcomment4 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.qcomment4].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -5146,10 +5263,10 @@ function AuditorQuestions() {
                                     the business and technical areas of the
                                     organisation
                                     <span className="badge bg-danger">
-                                      Danger
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Secondary
+                                      Mandatory
                                     </span>
                                     <ul>
                                       <li>
@@ -5179,7 +5296,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.qstatus5
                                             ? agentDetails.qstatus5
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -5200,7 +5317,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qdoc5 === "" ||
+                                            agentDetails.qdoc5 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.qdoc5].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -5217,7 +5338,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qcomment5 === "" ||
+                                            agentDetails.qcomment5 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.qcomment5].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -5535,10 +5661,10 @@ function AuditorQuestions() {
                                     Owners will be drawn from both the business
                                     and technical areas of the organisation.{" "}
                                     <span className="badge bg-danger">
-                                      Danger
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Secondary
+                                      Mandatory
                                     </span>
                                     <ul>
                                       <li>
@@ -5571,7 +5697,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.qstatus6
                                             ? agentDetails.qstatus6
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -5592,7 +5718,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qdoc6 === "" ||
+                                            agentDetails.qdoc6 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.qdoc6].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -5609,7 +5739,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qcomment6 === "" ||
+                                            agentDetails.qcomment6 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.qcomment6].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -5928,10 +6063,10 @@ function AuditorQuestions() {
                                     established policy, standards and best
                                     practices
                                     <span className="badge bg-danger">
-                                      Danger
+                                      High
                                     </span>{" "}
                                     <span className="badge bg-secondary">
-                                      Secondary
+                                      Mandatory
                                     </span>
                                     <ul>
                                       Such reviews should include coverage of:
@@ -5961,7 +6096,7 @@ function AuditorQuestions() {
                                         <h4 className="text-success">
                                           {agentDetails?.qstatus7
                                             ? agentDetails.qstatus7
-                                            : "NO"}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -5982,7 +6117,11 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qdoc7 === "" ||
+                                            agentDetails.qdoc7 === "undefined")
+                                            ? 0
+                                            : [agentDetails?.qdoc7].length}
                                         </span>{" "}
                                       </Link>{" "}
                                       <Link
@@ -5999,7 +6138,12 @@ function AuditorQuestions() {
                                           style={{ color: "#005cfa" }}
                                         />{" "}
                                         <span className="badge badge-number">
-                                          4
+                                          {agentDetails &&
+                                          (agentDetails.qcomment7 === "" ||
+                                            agentDetails.qcomment7 ===
+                                              "undefined")
+                                            ? 0
+                                            : [agentDetails?.qcomment7].length}
                                         </span>{" "}
                                       </Link>{" "}
                                     </div>
@@ -6341,7 +6485,8 @@ function AuditorQuestions() {
                           name="next"
                           onClick={() => {
                             page === 10 ? setPage(10) : setPage(page + 1);
-                            handleSaveChanges2();
+                            // handleSaveChanges2();
+                            // handleSaveChanges3();
                             handleSaveChanges3();
                           }}
                         >
@@ -6353,7 +6498,7 @@ function AuditorQuestions() {
                           name="next"
                           onClick={() => {
                             page === 10 ? setPage(10) : setPage(page + 1);
-                            // handleSaveChanges2();
+                            handleSaveChanges4();
                           }}
                         >
                           Reject
