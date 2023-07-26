@@ -33,7 +33,7 @@ export const PostApi = createApi({
       query: (body) => {
         console.log("update login data", body);
         return {
-          url: `/adda/adda-Login`,
+          url: `/adda/auditor-Login`,
           method: "post",
           body,
         };
