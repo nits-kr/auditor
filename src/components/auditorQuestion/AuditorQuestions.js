@@ -765,7 +765,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             colorChange2
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -1155,7 +1155,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             colorChange4
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -1557,7 +1557,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             colorChange6
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -1974,7 +1974,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             colorChange8
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -2371,7 +2371,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             colorChange10
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -2772,7 +2772,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             colorChange12
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -3171,7 +3171,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             colorChange14
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -3692,7 +3692,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             qcolorChange2
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -4155,7 +4155,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             qcolorChange4
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -4557,7 +4557,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             qcolorChange6
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -4974,7 +4974,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             qcolorChange8
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -5371,7 +5371,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             qcolorChange10
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -5772,7 +5772,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             qcolorChange12
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {
@@ -6171,7 +6171,7 @@ function AuditorQuestions() {
                                           type="button"
                                           className={
                                             qcolorChange14
-                                              ? "btn btn-primary"
+                                              ? "btn btn-danger"
                                               : "btn btn-secondary"
                                           }
                                           onClick={() => {

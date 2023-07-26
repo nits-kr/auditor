@@ -221,7 +221,7 @@ export const PostApi = createApi({
         const { id, ...data } = body;
         console.log("update address body data", data);
         return {
-          url: `/adda/update-question/${id}`,
+          url: `/adda/auditor-aproved-Score/${id}`,
           method: "post",
           body: data,
         };
