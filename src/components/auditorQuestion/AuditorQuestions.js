@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink, faComment } from "@fortawesome/free-solid-svg-icons";
+import { faLink, faComment, faXmark, faCheck } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 import Header from "../Header";
@@ -767,7 +767,7 @@ function AuditorQuestions() {
                                             // handleSaveChanges3();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -782,7 +782,7 @@ function AuditorQuestions() {
                                             // handleSaveChanges3();
                                           }}
                                         >
-                                          Reject
+                                          <FontAwesomeIcon icon={faXmark} />{" "}Reject
                                         </button>
                                       </div>
                                     </div>
@@ -1157,7 +1157,7 @@ function AuditorQuestions() {
                                             handlecolorchange3();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -1171,6 +1171,7 @@ function AuditorQuestions() {
                                             handlecolorchange4();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -1487,11 +1488,10 @@ function AuditorQuestions() {
                                         role="group"
                                         aria-label="Basic example"
                                       >
-                                        <h4 className="text-success">
-                                          yes
-                                          {/* {agentDetails?.status3 === "yes"
+                                        <h4 className="text-success">                        
+                                          {agentDetails?.status3 === "yes"
                                             ? agentDetails?.status3?.toUpperCase()
-                                            : "N/A"} */}
+                                            : "N/A"}
                                         </h4>
                                       </div>
                                     </div>
@@ -1512,7 +1512,7 @@ function AuditorQuestions() {
                                         />{" "}
                                         <span className="badge badge-number">
                                           {" "}
-                                          {agentDetails &&
+                                          {
                                           (agentDetails.doc3 === "" ||
                                             agentDetails.doc3 === "undefined")
                                             ? 0
@@ -1560,7 +1560,7 @@ function AuditorQuestions() {
                                             handlecolorchange5();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -1574,6 +1574,7 @@ function AuditorQuestions() {
                                             handlecolorchange6();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -1977,7 +1978,7 @@ function AuditorQuestions() {
                                             handlecolorchange7();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -1991,6 +1992,7 @@ function AuditorQuestions() {
                                             handlecolorchange8();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -2374,7 +2376,7 @@ function AuditorQuestions() {
                                             handlecolorchange9();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -2388,6 +2390,7 @@ function AuditorQuestions() {
                                             handlecolorchange10();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -2775,7 +2778,7 @@ function AuditorQuestions() {
                                             handlecolorchange11();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -2789,6 +2792,7 @@ function AuditorQuestions() {
                                             handlecolorchange12();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -3174,7 +3178,7 @@ function AuditorQuestions() {
                                             handlecolorchange13();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -3188,6 +3192,7 @@ function AuditorQuestions() {
                                             handlecolorchange14();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -3695,7 +3700,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange1();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -3709,6 +3714,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange2();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -4158,7 +4164,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange3();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -4172,6 +4178,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange4();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -4560,7 +4567,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange5();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -4574,6 +4581,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange6();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -4977,7 +4985,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange7();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -4991,6 +4999,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange8();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -5374,7 +5383,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange9();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -5388,6 +5397,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange10();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -5775,7 +5785,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange11();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -5789,6 +5799,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange12();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
@@ -6174,7 +6185,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange13();
                                           }}
                                         >
-                                          Accept
+                                         <FontAwesomeIcon icon={faCheck} />{" "} Accept
                                         </button>
                                         <button
                                           type="button"
@@ -6188,6 +6199,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange14();
                                           }}
                                         >
+                                          <FontAwesomeIcon icon={faXmark} />{" "}
                                           Reject
                                         </button>
                                       </div>
