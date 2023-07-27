@@ -1494,7 +1494,7 @@ function AuditorQuestions() {
                                         </h4>
                                       </div>
                                     </div>
-                                    <div className="col-lg-6 mt-4" >
+                                    <div className="col-lg-6 mt-4">
                                       {" "}
                                       <Link
                                         className="AttachBut2"
