@@ -1488,9 +1488,10 @@ function AuditorQuestions() {
                                         aria-label="Basic example"
                                       >
                                         <h4 className="text-success">
-                                          {agentDetails?.status3 === "yes"
+                                          yes
+                                          {/* {agentDetails?.status3 === "yes"
                                             ? agentDetails?.status3?.toUpperCase()
-                                            : "N/A"}
+                                            : "N/A"} */}
                                         </h4>
                                       </div>
                                     </div>
