@@ -285,8 +285,8 @@ function Home() {
                               <td style={{ textAlign: "center" }}>
                                 {item?.userName}
                               </td>
-                              <td></td>
-                              <td> {item?.score} </td>
+                              <td style={{ textAlign: "center" }}>{item?.score} </td>
+                              <td > </td>
                               <td style={{ textAlign: "center" }}>
                                 <div className="nav-item dropdown pe-3">
                                   <Link

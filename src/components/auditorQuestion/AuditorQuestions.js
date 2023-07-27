@@ -395,9 +395,9 @@ function AuditorQuestions() {
   }, []);
   console.log("item id at auditior", itemId);
   useEffect(() => {
-    if (itemId) {
+    // if (itemId) {
       userDetails();
-    }
+    // }
   }, [itemId]);
   const userDetails = async () => {
     const { data } = await axios.post(
@@ -696,11 +696,11 @@ function AuditorQuestions() {
                                         role="group"
                                         aria-label="Basic example"
                                       >
-                                        <h4 className="text-success">
+                                        <a className="text-success">
                                           {agentDetails?.status1 === "yes"
-                                            ? agentDetails?.status1?.toUpperCase()
+                                            ? agentDetails?.status1
                                             : "N/A"}
-                                        </h4>
+                                        </a>
                                       </div>
                                     </div>
                                     <div className="col-lg-6 mt-4">
