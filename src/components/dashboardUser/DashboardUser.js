@@ -77,11 +77,11 @@ function DashboardUser() {
     setInfoBar(false);
   };
   const data = {
-    labels: ["DS", "DM", "DC", "DS&P", "DA", "DM$D", "DG"],
+    labels: ["DG", "DM", "DC", "OD", "DM&D", "DA", "DS&P", "DS", "DI", "DQ"],
     datasets: [
       {
         label: "2022",
-        data: [65, 59, 90, 81, 56, 55, 40],
+        data: [17.5, 27.5, 15.5, 43.5, 18.0, 17.5, 34.5, 24.5, 66.5, 43.5],
         fill: true,
         backgroundColor: "rgba(255, 99, 132, 0.2)",
         borderColor: "rgb(255, 99, 132)",
@@ -92,7 +92,7 @@ function DashboardUser() {
       },
       {
         label: "2023",
-        data: [28, 48, 40, 19, 96, 27, 100],
+        data: [25.5, 55.5, 12.5, 40.5, 15.0, 18.5, 89.5, 28.5, 68.5, 93.5],
         fill: true,
         backgroundColor: "rgba(54, 162, 235, 0.2)",
         borderColor: "rgb(54, 162, 235)",
