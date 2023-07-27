@@ -696,11 +696,11 @@ function AuditorQuestions() {
                                         role="group"
                                         aria-label="Basic example"
                                       >
-                                        <a className="text-success">
+                                        <h4 className="text-success">
                                           {agentDetails?.status1 === "yes"
-                                            ? agentDetails?.status1
+                                            ? agentDetails?.status1?.toUpperCase()
                                             : "N/A"}
-                                        </a>
+                                        </h4>
                                       </div>
                                     </div>
                                     <div className="col-lg-6 mt-4">
