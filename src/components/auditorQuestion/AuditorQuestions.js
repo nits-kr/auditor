@@ -695,7 +695,7 @@ function AuditorQuestions() {
                                         aria-label="Basic example"
                                       >
                                         <h4 className="text-success">
-                                          {agentDetails?.status1
+                                          {agentDetails?.status1 === "yes"
                                             ? agentDetails?.status1?.toUpperCase()
                                             : "N/A"}
                                         </h4>
@@ -1086,7 +1086,7 @@ function AuditorQuestions() {
                                         aria-label="Basic example"
                                       >
                                         <h4 className="text-success">
-                                          {agentDetails?.status2
+                                          {agentDetails?.status2 == "yes"
                                             ? agentDetails?.status2?.toUpperCase()
                                             : "N/A"}
                                         </h4>
@@ -1488,7 +1488,7 @@ function AuditorQuestions() {
                                         aria-label="Basic example"
                                       >
                                         <h4 className="text-success">
-                                          {agentDetails?.status3
+                                          {agentDetails?.status3 === "yes"
                                             ? agentDetails?.status3?.toUpperCase()
                                             : "N/A"}
                                         </h4>
