@@ -550,11 +550,11 @@ function Home() {
                     // defaultValue=" "
                     onChange={(e) => setEntity(e.target.value)}
                   >
-                    <option value="Auditor">RWGBF</option>
-                    <option value="ADNOC">ARMAC</option>
-                    <option value="DMT">SAERDC</option>
-                    <option value="SSL">TRCSD</option>
-                    <option value="Tabreed">REACT</option>
+                    <option value="Auditor">Narendra</option>
+                    <option value="ADNOC">Naeem</option>
+                    <option value="DMT">Athar</option>
+                    <option value="SSL">Vishnu</option>
+                    <option value="Tabreed">Jangid</option>
                   </select>
                   <label htmlFor="floatingSelect">Select Auditor Name</label>
                 </div>
