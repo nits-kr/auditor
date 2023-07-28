@@ -804,12 +804,17 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src={agentDetails?.doc1}
                                             alt="Not Uploaded"
                                             width="4%"
                                             className=""
-                                          />{" "}
+                                          />{" "} */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.doc1 === "" ||
+                                            agentDetails.doc1 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.doc1} </p>
                                           {/* Upload your files here or
                                           <button className="btn bg-color-dblue btn-primary" style={{marginLeft:"5px"}}>
                                             Browse
@@ -1192,28 +1197,33 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value2"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
-                                          <img
-                                            src="upload.png"
-                                            alt=""
+                                          {/* <img
+                                            src={agentDetails?.doc2}
+                                            alt="Not Uploaded"
                                             width="4%"
                                             className=""
-                                          />{" "}
-                                          Upload your files here or
+                                          />{" "} */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.doc2 === "" ||
+                                            agentDetails.doc2 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.doc2} </p>
+                                          {/* Upload your files here or
                                           <button
                                             className="btn bg-color-dblue btn-primary"
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
                                         </div>
                                         <span
                                           id="fileName2"
@@ -1608,7 +1618,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -1620,7 +1630,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.doc3 === "" ||
+                                            agentDetails.doc3 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.doc3} </p>
                                         </div>
                                         <span
                                           id="fileName3"
@@ -2031,7 +2046,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -2043,7 +2058,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.doc4 === "" ||
+                                            agentDetails.doc4 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.doc4} </p>
                                         </div>
                                         <span
                                           id="fileName4"
@@ -2434,7 +2454,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -2446,7 +2466,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.doc5 === "" ||
+                                            agentDetails.doc5 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.doc5} </p>
                                         </div>
                                         <span
                                           id="fileName5"
@@ -2841,7 +2866,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -2853,7 +2878,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.doc6 === "" ||
+                                            agentDetails.doc6 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.doc6} </p>
                                         </div>
                                         <span
                                           id="fileName6"
@@ -3246,7 +3276,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -3258,7 +3288,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.doc7 === "" ||
+                                            agentDetails.doc7 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.doc7} </p>
                                         </div>
                                         <span
                                           id="fileName7"
@@ -3771,7 +3806,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt="upload"
                                             width="4%"
@@ -3780,7 +3815,12 @@ function AuditorQuestions() {
                                           Upload your files here or
                                           <button className="btn bg-color-dblue btn-primary">
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.qdoc1 === "" ||
+                                            agentDetails.qdoc1 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.qdoc1} </p>
                                         </div>
                                         <span
                                           id="fileName1"
@@ -4242,7 +4282,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -4254,7 +4294,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.qdoc2 === "" ||
+                                            agentDetails.qdoc2 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.qdoc2} </p>
                                         </div>
                                         <span
                                           id="fileName2"
@@ -4650,7 +4695,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -4662,7 +4707,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.qdoc3 === "" ||
+                                            agentDetails.qdoc3 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.qdoc3} </p>
                                         </div>
                                         <span
                                           id="fileName3"
@@ -5073,7 +5123,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -5085,7 +5135,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.qdoc4 === "" ||
+                                            agentDetails.qdoc4 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.qdoc4} </p>
                                         </div>
                                         <span
                                           id="fileName4"
@@ -5476,7 +5531,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -5488,7 +5543,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.qdoc5 === "" ||
+                                            agentDetails.qdoc5 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.qdoc5} </p>
                                         </div>
                                         <span
                                           id="fileName5"
@@ -5883,7 +5943,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -5895,7 +5955,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.qdoc6 === "" ||
+                                            agentDetails.qdoc6 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.qdoc6} </p>
                                         </div>
                                         <span
                                           id="fileName6"
@@ -6288,7 +6353,7 @@ function AuditorQuestions() {
                                         />
                                         <div>
                                           {" "}
-                                          <img
+                                          {/* <img
                                             src="upload.png"
                                             alt=""
                                             width="4%"
@@ -6300,7 +6365,12 @@ function AuditorQuestions() {
                                             style={{ marginLeft: "5px" }}
                                           >
                                             Browse
-                                          </button>
+                                          </button> */}
+                                          <p> {agentDetails &&
+                                          (agentDetails.qdoc7 === "" ||
+                                            agentDetails.qdoc7 === "undefined")
+                                            ? "File Not Uploaded"
+                                            : agentDetails.qdoc7} </p>
                                         </div>
                                         <span
                                           id="fileName7"
