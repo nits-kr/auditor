@@ -797,11 +797,11 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value1"
                                           type="file"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -1633,13 +1633,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value3"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {/* <img
                                             src="upload.png"
@@ -2072,13 +2072,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value4"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -2492,13 +2492,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value5"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -2916,13 +2916,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value6"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -3338,13 +3338,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value7"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -3882,11 +3882,11 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value1"
                                           type="file"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -4368,13 +4368,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value2"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -4793,13 +4793,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value3"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -5233,13 +5233,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value4"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -5653,13 +5653,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value5"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -6077,13 +6077,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value6"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
@@ -6499,13 +6499,13 @@ function AuditorQuestions() {
                                   >
                                     <form action="">
                                       <div className="form">
-                                        <input
+                                        {/* <input
                                           name="file"
                                           id="entry_value7"
                                           //   ref="fileInput"
                                           type="file"
                                           //   onchange="getFileName()"
-                                        />
+                                        /> */}
                                         <div>
                                           {" "}
                                           {/* <img
