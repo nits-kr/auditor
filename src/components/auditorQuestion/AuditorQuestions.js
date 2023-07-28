@@ -815,6 +815,18 @@ function AuditorQuestions() {
                                             agentDetails.doc1 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.doc1} </p>
+                                            <Link
+                                            to={agentDetails.doc1}
+                                            className={agentDetails &&
+                                              (agentDetails.doc1 === "" ||
+                                                agentDetails.doc1 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                           {/* Upload your files here or
                                           <button className="btn bg-color-dblue btn-primary" style={{marginLeft:"5px"}}>
                                             Browse
@@ -1217,6 +1229,18 @@ function AuditorQuestions() {
                                             agentDetails.doc2 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.doc2} </p>
+                                            <Link
+                                            to={agentDetails.doc2}
+                                            className={agentDetails &&
+                                              (agentDetails.doc2 === "" ||
+                                                agentDetails.doc2 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                           {/* Upload your files here or
                                           <button
                                             className="btn bg-color-dblue btn-primary"
@@ -1617,7 +1641,6 @@ function AuditorQuestions() {
                                           //   onchange="getFileName()"
                                         />
                                         <div>
-                                          {" "}
                                           {/* <img
                                             src="upload.png"
                                             alt=""
@@ -1636,6 +1659,18 @@ function AuditorQuestions() {
                                             agentDetails.doc3 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.doc3} </p>
+                                            <Link
+                                            to={agentDetails.doc3}
+                                            className={agentDetails &&
+                                              (agentDetails.doc3 === "" ||
+                                                agentDetails.doc3 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName3"
@@ -2064,6 +2099,18 @@ function AuditorQuestions() {
                                             agentDetails.doc4 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.doc4} </p>
+                                            <Link
+                                            to={agentDetails.doc4}
+                                            className={agentDetails &&
+                                              (agentDetails.doc4 === "" ||
+                                                agentDetails.doc4 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName4"
@@ -2472,6 +2519,18 @@ function AuditorQuestions() {
                                             agentDetails.doc5 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.doc5} </p>
+                                            <Link
+                                            to={agentDetails.doc5}
+                                            className={agentDetails &&
+                                              (agentDetails.doc5 === "" ||
+                                                agentDetails.doc5 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName5"
@@ -2884,6 +2943,18 @@ function AuditorQuestions() {
                                             agentDetails.doc6 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.doc6} </p>
+                                            <Link
+                                            to={agentDetails.doc6}
+                                            className={agentDetails &&
+                                              (agentDetails.doc6 === "" ||
+                                                agentDetails.doc6 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName6"
@@ -3294,6 +3365,18 @@ function AuditorQuestions() {
                                             agentDetails.doc7 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.doc7} </p>
+                                            <Link
+                                            to={agentDetails.doc7}
+                                            className={agentDetails &&
+                                              (agentDetails.doc7 === "" ||
+                                                agentDetails.doc7 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName7"
@@ -3821,6 +3904,18 @@ function AuditorQuestions() {
                                             agentDetails.qdoc1 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.qdoc1} </p>
+                                            <Link
+                                            to={agentDetails.qdoc1}
+                                            className={agentDetails &&
+                                              (agentDetails.qdoc1 === "" ||
+                                                agentDetails.qdoc1 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName1"
@@ -4300,6 +4395,18 @@ function AuditorQuestions() {
                                             agentDetails.qdoc2 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.qdoc2} </p>
+                                            <Link
+                                            to={agentDetails.qdoc2}
+                                            className={agentDetails &&
+                                              (agentDetails.qdoc2 === "" ||
+                                                agentDetails.qdoc2 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName2"
@@ -4713,6 +4820,18 @@ function AuditorQuestions() {
                                             agentDetails.qdoc3 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.qdoc3} </p>
+                                            <Link
+                                            to={agentDetails.qdoc3}
+                                            className={agentDetails &&
+                                              (agentDetails.qdoc3 === "" ||
+                                                agentDetails.qdoc3 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName3"
@@ -5141,6 +5260,18 @@ function AuditorQuestions() {
                                             agentDetails.qdoc4 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.qdoc4} </p>
+                                            <Link
+                                            to={agentDetails.qdoc4}
+                                            className={agentDetails &&
+                                              (agentDetails.qdoc4 === "" ||
+                                                agentDetails.qdoc4 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName4"
@@ -5549,6 +5680,18 @@ function AuditorQuestions() {
                                             agentDetails.qdoc5 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.qdoc5} </p>
+                                            <Link
+                                            to={agentDetails.qdoc5}
+                                            className={agentDetails &&
+                                              (agentDetails.qdoc5 === "" ||
+                                                agentDetails.qdoc5 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName5"
@@ -5961,6 +6104,18 @@ function AuditorQuestions() {
                                             agentDetails.qdoc6 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.qdoc6} </p>
+                                            <Link
+                                            to={agentDetails.qdoc6}
+                                            className={agentDetails &&
+                                              (agentDetails.qdoc6 === "" ||
+                                                agentDetails.qdoc6 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName6"
@@ -6371,6 +6526,18 @@ function AuditorQuestions() {
                                             agentDetails.qdoc7 === "undefined")
                                             ? "File Not Uploaded"
                                             : agentDetails.qdoc7} </p>
+                                            <Link
+                                            to={agentDetails.qdoc7}
+                                            className={agentDetails &&
+                                              (agentDetails.qdoc7 === "" ||
+                                                agentDetails.qdoc7 === "undefined")
+                                                ? "d-none"
+                                                : "mx-2"} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            View Document
+                                          </Link>
                                         </div>
                                         <span
                                           id="fileName7"
