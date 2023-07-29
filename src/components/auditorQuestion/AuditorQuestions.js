@@ -4764,7 +4764,7 @@ function AuditorQuestions() {
                                             qhandlecolorchange6();
                                           }}
                                         >
-                                          {qcolorChange6 ? <><FontAwesomeIcon icon={faCheck} /> Reject</> : "Reject"}
+                                          {qcolorChange6 ? <><FontAwesomeIcon icon={faXmark} /> Reject</> : "Reject"}
                                         </button>
                                       </div>
                                     </div>
