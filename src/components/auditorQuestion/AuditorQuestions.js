@@ -353,6 +353,7 @@ function AuditorQuestions() {
   const handleSaveChanges2 = () => {
     const editAddress = {
       id: id,
+      approved : true
     };
     approveIn(editAddress);
 
@@ -364,7 +365,9 @@ function AuditorQuestions() {
       timerProgressBar: true,
     });
     // window.location.href = "/home";
-    // window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
   const handleSaveChanges4 = () => {
     const editAddress = {
@@ -6815,7 +6818,6 @@ function AuditorQuestions() {
                         name="next"
                         onClick={() => {
                           page === 10 ? setPage(10) : setPage(page + 1);
-                          // handleSaveChanges3();
                         }}
                       >
                         Next

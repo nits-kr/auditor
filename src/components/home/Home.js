@@ -364,8 +364,40 @@ function Home() {
                                     Assign
                                   </Link>
                                 )}
+                                {item?.approved ? (
+                                  <Link
+                                  // to="/auditior-question"
+                                  // to={`/auditior-question/${item._id}`}
+                                  type="button"
+                                  className="btn btn-sm mx-1"
+                                  style={{ cursor: "not-allowed" }}
+                                  // onClick={() => {
+                                  //   navigate("/auditior-question")
+                                  // }}
 
-                                <Link
+                                  // onClick={() => review(item._id)}
+                                >
+                                  <FontAwesomeIcon icon={faCopy} />
+                                  <FontAwesomeIcon icon={faComment} /> Review/Approve
+                                </Link>
+                                ) : (
+                                  <Link
+                                  // to="/auditior-question"
+                                  to={`/auditior-question/${item._id}`}
+                                  type="button"
+                                  className="btn btn-sm tableBtn-blue"
+                                  // onClick={() => {
+                                  //   navigate("/auditior-question")
+                                  // }}
+
+                                  onClick={() => review(item._id)}
+                                >
+                                  <FontAwesomeIcon icon={faCopy} />
+                                  <FontAwesomeIcon icon={faComment} /> Review/Approve
+                                </Link>
+                                )}
+
+                                {/* <Link
                                   // to="/auditior-question"
                                   to={`/auditior-question/${item._id}`}
                                   type=""
@@ -378,7 +410,7 @@ function Home() {
                                 >
                                   <FontAwesomeIcon icon={faCopy} />
                                   <FontAwesomeIcon icon={faComment} /> Review/Approve
-                                </Link>
+                                </Link> */}
                               </td>
                             </tr>
                           );

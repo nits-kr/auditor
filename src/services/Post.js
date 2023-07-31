@@ -61,13 +61,25 @@ export const PostApi = createApi({
         };
       },
     }),
+    // addApprove: builder.mutation({
+    //   query: (body) => {
+    //     const { id } = body;
+    //     console.log("viewDetails id", id);
+    //     return {
+    //       url: `/adda/auditor-aproved-Score/${id}`,
+    //       method: "post",
+    //     };
+    //   },
+    // }),
     addApprove: builder.mutation({
       query: (body) => {
-        const { id } = body;
-        console.log("viewDetails id", id);
+        console.log("update address", body);
+        const { id, ...data } = body;
+        console.log("update address body data", data);
         return {
           url: `/adda/auditor-aproved-Score/${id}`,
           method: "post",
+          body: data,
         };
       },
     }),
