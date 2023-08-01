@@ -7961,7 +7961,6 @@ function AuditorQuestions() {
                           onClick={() => {
                             page === 10 ? setPage(10) : setPage(page + 1);
                             handleSaveChanges2();
-                            // handleSaveChanges5();
                             handleOnSave();
                             handleSaveChanges3();
                           }}
