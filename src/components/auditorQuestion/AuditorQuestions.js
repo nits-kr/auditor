@@ -357,17 +357,17 @@ function AuditorQuestions() {
     };
     approveIn(editAddress);
 
-    Swal.fire({
-      icon: "success",
-      title: "Approved",
-      text: "Your have been Approved In.",
-      timer: 3000,
-      timerProgressBar: true,
-    });
+    // Swal.fire({
+    //   icon: "success",
+    //   title: "Approved",
+    //   text: "Your have been Approved In.",
+    //   timer: 3000,
+    //   timerProgressBar: true,
+    // });
     // window.location.href = "/home";
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 1000);
   };
   const handleSaveChanges4 = () => {
     const editAddress = {
@@ -432,8 +432,8 @@ function AuditorQuestions() {
     };
     await updateQuestion(editAddress).then(() => {
       Swal.fire({
-        title: "Accepted!",
-        text: " Question Accepted.",
+        title: "Submited!",
+        text: " Question Submited.",
         icon: "success",
         showCancelButton: false,
         confirmButtonColor: "#3085d6",
@@ -441,6 +441,9 @@ function AuditorQuestions() {
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.href = "/home";
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         }
       });
     });

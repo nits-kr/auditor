@@ -394,7 +394,7 @@ function Home() {
                                 >
                                   <FontAwesomeIcon icon={faCopy} />
                                   <FontAwesomeIcon icon={faComment} /> Review/Approve
-                                </Link>
+                                </Link >
                                 )}
 
                                 {/* <Link
